@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MechInd Mind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⚙️ MechInd Mind</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="problems.html">Problems</a></li>
+            <li><a href="submit.html">Submit</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <span class="user-name">👋 Welcome, Juan</span>
+            <button class="btn-secondary" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- DASHBOARD CONTENT (with Profile Picture)     -->
+    <!-- ============================================ -->
+    <section class="dashboard-wrapper">
+
+        <!-- Greeting + Profile Picture -->
+        <div class="dashboard-header">
+            <div class="profile-section">
+                <div class="profile-pic-wrapper" id="profilePicWrapper">
+                    <img id="profilePic" src="https://ui-avatars.com/api/?name=Juan+Dela+Cruz&background=800000&color=fff&size=100" alt="Profile Picture">
+                    <label for="profileUpload" class="upload-overlay">
+                        <span>📷</span>
+                        <span class="upload-text">Change Photo</span>
+                    </label>
+                    <input type="file" id="profileUpload" accept="image/*">
+                </div>
+                <div class="profile-info">
+                    <h1>👋 Welcome, Juan</h1>
+                    <p>Here's your ME & IE learning progress overview</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Solved</h3>
+                <p class="stat-number">24</p>
+                <span class="stat-label">Problems</span>
+            </div>
+            <div class="stat-card">
+                <h3>Current Streak</h3>
+                <p class="stat-number">12</p>
+                <span class="stat-label">Days</span>
+            </div>
+            <div class="stat-card">
+                <h3>Badges Earned</h3>
+                <p class="stat-number">5</p>
+                <span class="stat-label">Achievements</span>
+            </div>
+            <div class="stat-card">
+                <h3>Points Earned</h3>
+                <p class="stat-number">1,250</p>
+                <span class="stat-label">Total Points</span>
+            </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="dashboard-grid">
+
+            <!-- Left Column: Subject Mastery -->
+            <div class="dashboard-card">
+                <h2>🧠 Subject Mastery</h2>
+                <div class="progress-item">
+                    <span>🔥 Thermodynamics</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%;"></div>
+                    </div>
+                    <span class="progress-percent">80%</span>
+                </div>
+                <div class="progress-item">
+                    <span>💧 Fluid Mechanics</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%;"></div>
+                    </div>
+                    <span class="progress-percent">60%</span>
+                </div>
+                <div class="progress-item">
+                    <span>⚙️ Machine Design</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%;"></div>
+                    </div>
+                    <span class="progress-percent">40%</span>
+                </div>
+                <div class="progress-item">
+                    <span>📊 Operations Research</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%;"></div>
+                    </div>
+                    <span class="progress-percent">65%</span>
+                </div>
+                <div class="progress-item">
+                    <span>📐 Strength of Materials</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 30%;"></div>
+                    </div>
+                    <span class="progress-percent">30%</span>
+                </div>
+            </div>
+
+            <!-- Right Column: Recently Solved -->
+            <div class="dashboard-card">
+                <h2>📚 Recently Solved</h2>
+                <div class="recent-item">
+                    <div class="recent-info">
+                        <h4>Thermodynamics – Ideal Gas Law</h4>
+                        <p>✅ Solved | 2 days ago</p>
+                    </div>
+                    <span class="recent-status solved">Solved</span>
+                </div>
+                <div class="recent-item">
+                    <div class="recent-info">
+                        <h4>Operations Research – Linear Programming</h4>
+                        <p>✅ Solved | 3 days ago</p>
+                    </div>
+                    <span class="recent-status solved">Solved</span>
+                </div>
+                <div class="recent-item">
+                    <div class="recent-info">
+                        <h4>Fluid Mechanics – Bernoulli's Equation</h4>
+                        <p>✅ Solved | 5 days ago</p>
+                    </div>
+                    <span class="recent-status solved">Solved</span>
+                </div>
+                <div class="recent-item">
+                    <div class="recent-info">
+                        <h4>Machine Design – Gear Ratio</h4>
+                        <p>⏳ In Progress | 1 week ago</p>
+                    </div>
+                    <span class="recent-status progress">In Progress</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Second Row: Leaderboard & Contributions -->
+        <div class="dashboard-grid">
+
+            <!-- Leaderboard -->
+            <div class="dashboard-card">
+                <h2>🏆 Leaderboard (This Month)</h2>
+                <div class="leaderboard-item">
+                    <span class="rank gold">🥇</span>
+                    <span class="name">Maria Santos</span>
+                    <span class="points">1,450 pts</span>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="rank silver">🥈</span>
+                    <span class="name">Juan Cruz</span>
+                    <span class="points">1,250 pts</span>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="rank bronze">🥉</span>
+                    <span class="name">Ana Reyes</span>
+                    <span class="points">1,100 pts</span>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="rank">4</span>
+                    <span class="name">Pedro Ramos</span>
+                    <span class="points">980 pts</span>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="rank">5</span>
+                    <span class="name">Lisa Torres</span>
+                    <span class="points">850 pts</span>
+                </div>
+            </div>
+
+            <!-- Your Contributions -->
+            <div class="dashboard-card">
+                <h2>📤 Your Contributions</h2>
+                <div class="contribution-item">
+                    <span>Problems Submitted:</span>
+                    <span class="value">3</span>
+                </div>
+                <div class="contribution-item">
+                    <span>Solutions Submitted:</span>
+                    <span class="value">2</span>
+                </div>
+                <div class="contribution-item">
+                    <span>Pending Review:</span>
+                    <span class="value">1</span>
+                </div>
+                <div class="contribution-item">
+                    <span>Accepted:</span>
+                    <span class="value">4</span>
+                </div>
+                <div class="contribution-item total">
+                    <span>Total Contributions:</span>
+                    <span class="value">10</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h2>🔧 Quick Actions</h2>
+            <div class="action-grid">
+                <a href="problems.html" class="action-btn">📖 Find Problems</a>
+                <a href="submit.html" class="action-btn">📤 Submit Problem</a>
+                <a href="#" class="action-btn">💬 Join Study Group</a>
+                <a href="#" class="action-btn">🏆 View Leaderboard</a>
+            </div>
+        </div>
+
+        <!-- Community Search -->
+        <div class="community-search">
+            <input type="text" placeholder="🔍 Ask the Community: 'How do I solve this thermodynamics problem?'">
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MechInd Mind. By students, for students. Always free.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Log in to your MechInd Mind account</p>
+            <form id="loginForm" onsubmit="loginUser(event)">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn-primary full-width">Log In</button>
+            </form>
+            <p class="modal-footer-text">Don't have an account? <a href="#" id="switchToSignup">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSignup">&times;</span>
+            <h2>Create Your Account</h2>
+            <p class="modal-subtitle">Join the ME & IE learning community</p>
+            <form id="signupForm" onsubmit="signupUser(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Juan Dela Cruz" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create a strong password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox" required> I agree to the Terms & Conditions</label>
+                </div>
+                <button type="submit" class="btn-primary full-width">Create Account</button>
+            </form>
+            <p class="modal-footer-text">Already have an account? <a href="#" id="switchToLogin">Log In</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

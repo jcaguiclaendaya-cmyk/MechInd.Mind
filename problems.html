@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems - MechInd Mind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"> MechInd Mind</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="problems.html" class="active">Problems</a></li>
+            <li><a href="submit.html">Submit</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="btn-secondary" id="loginBtn">Log In</button>
+            <button class="btn-primary" id="signupBtn">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1> Problem Sets</h1>
+        <p>Search and browse problems from ME and IE subjects</p>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FILTERS (Centered + Aesthetic)               -->
+    <!-- ============================================ -->
+    <section class="filters-wrapper">
+        <div class="filters-container">
+            <div class="filter-row">
+                <select id="subjectFilter">
+                    <option value="all">📋 All Subjects</option>
+                    <option value="me">⚙️ Mechanical Engineering</option>
+                    <option value="ie">📊 Industrial Engineering</option>
+                </select>
+                <select id="difficultyFilter">
+                    <option value="all">📊 All Difficulties</option>
+                    <option value="easy"> Easy</option>
+                    <option value="medium"> Medium</option>
+                    <option value="hard"> Hard</option>
+                    <option value="expert"> Expert</option>
+                </select>
+                <select id="yearFilter">
+                    <option value="all"> All Years</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                    <option value="board"> Board Exam</option>
+                </select>
+            </div>
+            <div class="filter-row search-row">
+                <input type="text" id="problemSearch" placeholder="🔍 Search by keyword...">
+                <button onclick="filterProblems()">✨ Filter</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem List -->
+    <section class="problem-list">
+
+        <!-- ME Problem 1 -->
+        <div class="problem-card" data-subject="me" data-difficulty="medium" data-year="2">
+            <span class="subject-tag me">ME</span>
+            <h3>Thermodynamics – Ideal Gas Law</h3>
+            <p class="problem-meta"><strong>Difficulty:</strong> Medium | <strong>Year:</strong> 2nd Year | <strong>45 solves</strong></p>
+            <p class="problem-preview">A rigid tank contains 5 kg of an ideal gas at 300 kPa and 400 K. The gas is heated until the temperature reaches 600 K. Determine the final pressure.</p>
+            <div class="problem-actions">
+                <button onclick="openSolution(1)">📖 View Solution</button>
+                <button onclick="saveProblem(1)">⭐ Save</button>
+                <button onclick="discussProblem(1)">💬 Discuss</button>
+            </div>
+        </div>
+
+        <!-- IE Problem 1 -->
+        <div class="problem-card" data-subject="ie" data-difficulty="hard" data-year="3">
+            <span class="subject-tag ie">IE</span>
+            <h3>Operations Research – Linear Programming</h3>
+            <p class="problem-meta"><strong>Difficulty:</strong> Hard | <strong>Year:</strong> 3rd Year | <strong>32 solves</strong></p>
+            <p class="problem-preview">A company produces two products. Product A requires 2 hours of labor and 1 hour of machine time. Product B requires 1 hour of labor and 3 hours of machine time. The company has 100 labor hours and 80 machine hours available daily. Profit per unit of A is $40 and B is $30. How many units of each should be produced to maximize profit?</p>
+            <div class="problem-actions">
+                <button onclick="openSolution(2)">📖 View Solution</button>
+                <button onclick="saveProblem(2)">⭐ Save</button>
+                <button onclick="discussProblem(2)">💬 Discuss</button>
+            </div>
+        </div>
+
+        <!-- ME Problem 2 -->
+        <div class="problem-card" data-subject="me" data-difficulty="easy" data-year="1">
+            <span class="subject-tag me">ME</span>
+            <h3>Fluid Mechanics – Bernoulli's Equation</h3>
+            <p class="problem-meta"><strong>Difficulty:</strong> Easy | <strong>Year:</strong> 1st Year | <strong>67 solves</strong></p>
+            <p class="problem-preview">Water flows through a pipe with a velocity of 3 m/s. The pressure at point A is 150 kPa. At point B, the pipe narrows to half the diameter. Determine the velocity and pressure at point B. Assume no losses.</p>
+            <div class="problem-actions">
+                <button onclick="openSolution(3)">📖 View Solution</button>
+                <button onclick="saveProblem(3)">⭐ Save</button>
+                <button onclick="discussProblem(3)">💬 Discuss</button>
+            </div>
+        </div>
+
+        <!-- IE Problem 2 -->
+        <div class="problem-card" data-subject="ie" data-difficulty="medium" data-year="2">
+            <span class="subject-tag ie">IE</span>
+            <h3>Industrial Statistics – Control Charts</h3>
+            <p class="problem-meta"><strong>Difficulty:</strong> Medium | <strong>Year:</strong> 2nd Year | <strong>28 solves</strong></p>
+            <p class="problem-preview">A manufacturing process produces shafts with a target diameter of 50 mm. Sample data shows a mean of 50.2 mm and a standard deviation of 0.5 mm. Construct an X-bar control chart with 3-sigma limits. Determine if the process is in control.</p>
+            <div class="problem-actions">
+                <button onclick="openSolution(4)">📖 View Solution</button>
+                <button onclick="saveProblem(4)">⭐ Save</button>
+                <button onclick="discussProblem(4)">💬 Discuss</button>
+            </div>
+        </div>
+
+        <!-- ME Problem 3 -->
+        <div class="problem-card" data-subject="me" data-difficulty="easy" data-year="1">
+            <span class="subject-tag me">ME</span>
+            <h3>Strength of Materials – Simple Stress</h3>
+            <p class="problem-meta"><strong>Difficulty:</strong> Easy | <strong>Year:</strong> 1st Year | <strong>52 solves</strong></p>
+            <p class="problem-preview">A steel rod with a diameter of 20 mm and a length of 2 meters is subjected to an axial tensile load of 50 kN. Determine the stress in the rod.</p>
+            <div class="problem-actions">
+                <button onclick="openSolution(5)">📖 View Solution</button>
+                <button onclick="saveProblem(5)">⭐ Save</button>
+                <button onclick="discussProblem(5)">💬 Discuss</button>
+            </div>
+        </div>
+
+        <!-- IE Problem 3 -->
+        <div class="problem-card" data-subject="ie" data-difficulty="medium" data-year="3">
+            <span class="subject-tag ie">IE</span>
+            <h3>Engineering Economy – Break-Even Analysis</h3>
+            <p class="problem-meta"><strong>Difficulty:</strong> Medium | <strong>Year:</strong> 3rd Year | <strong>21 solves</strong></p>
+            <p class="problem-preview">A company is considering a new project. Fixed costs are $50,000, variable cost per unit is $10, and selling price per unit is $25. How many units must be sold to break even?</p>
+            <div class="problem-actions">
+                <button onclick="openSolution(6)">📖 View Solution</button>
+                <button onclick="saveProblem(6)">⭐ Save</button>
+                <button onclick="discussProblem(6)">💬 Discuss</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SOLUTION MODAL (Aesthetic Pop-up)            -->
+    <!-- ============================================ -->
+    <div id="solutionModal" class="solution-modal">
+        <div class="solution-modal-content">
+            <span class="solution-close-btn" onclick="closeSolution()">&times;</span>
+            <div id="solutionContent">
+                <h2 id="solutionTitle">Problem Title</h2>
+                <div class="solution-body">
+                    <p><strong>Given:</strong></p>
+                    <ul id="solutionGiven">
+                        <li>Given data goes here</li>
+                    </ul>
+                    <p><strong>Required:</strong></p>
+                    <ul id="solutionRequired">
+                        <li>Required data goes here</li>
+                    </ul>
+                    <p><strong>Step-by-Step Solution:</strong></p>
+                    <ol id="solutionSteps">
+                        <li>Step 1: Explanation goes here</li>
+                        <li>Step 2: Explanation goes here</li>
+                        <li>Step 3: Explanation goes here</li>
+                    </ol>
+                    <div class="solution-final-answer" id="solutionFinalAnswer">
+                        <strong>Final Answer:</strong> Answer goes here
+                    </div>
+                    <div class="solution-tips" id="solutionTips">
+                        <strong>💡 Tips & Common Mistakes:</strong>
+                        <ul>
+                            <li>Tip 1</li>
+                            <li>Tip 2</li>
+                        </ul>
+                    </div>
+                    <div class="solution-realworld" id="solutionRealWorld">
+                        <strong>🌍 Real-World Application:</strong>
+                        <p>Real-world context goes here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MechInd Mind. By students, for students. Always free.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Log in to your MechInd Mind account</p>
+            <form id="loginForm" onsubmit="loginUser(event)">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn-primary full-width">Log In</button>
+            </form>
+            <p class="modal-footer-text">Don't have an account? <a href="#" id="switchToSignup">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSignup">&times;</span>
+            <h2>Create Your Account</h2>
+            <p class="modal-subtitle">Join the ME & IE learning community</p>
+            <form id="signupForm" onsubmit="signupUser(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Juan Dela Cruz" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create a strong password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox" required> I agree to the Terms & Conditions</label>
+                </div>
+                <button type="submit" class="btn-primary full-width">Create Account</button>
+            </form>
+            <p class="modal-footer-text">Already have an account? <a href="#" id="switchToLogin">Log In</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

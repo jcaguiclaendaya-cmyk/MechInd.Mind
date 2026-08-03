@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit - MechInd Mind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⚙️ MechInd Mind</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="problems.html">Problems</a></li>
+            <li><a href="submit.html" class="active">Submit</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="btn-secondary" id="loginBtn">Log In</button>
+            <button class="btn-primary" id="signupBtn">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>📤 Submit a Problem</h1>
+        <p>Contribute your own original problems and solutions to help fellow ME & IE students</p>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SUBMIT FORM (Aesthetic)                      -->
+    <!-- ============================================ -->
+    <section class="submit-wrapper">
+        <div class="submit-container">
+            <form id="problemForm" onsubmit="submitProblem(event)">
+
+                <!-- Problem Title -->
+                <div class="form-group">
+                    <label for="problemTitle">📝 Problem Title <span class="required">*</span></label>
+                    <input type="text" id="problemTitle" placeholder="e.g., Thermodynamics – Ideal Gas Law" required>
+                </div>
+
+                <!-- Problem Statement -->
+                <div class="form-group">
+                    <label for="problemStatement">📄 Problem Statement <span class="required">*</span></label>
+                    <textarea id="problemStatement" rows="4" placeholder="Write the full problem description clearly..." required></textarea>
+                </div>
+
+                <!-- Subject & Topic Row -->
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="subject">📋 Subject <span class="required">*</span></label>
+                        <select id="subject" required>
+                            <option value="">Select Subject</option>
+                            <option value="me">⚙️ Mechanical Engineering</option>
+                            <option value="ie">📊 Industrial Engineering</option>
+                        </select>
+                    </div>
+                    <div class="form-group half">
+                        <label for="topic">🏷️ Topic <span class="required">*</span></label>
+                        <input type="text" id="topic" placeholder="e.g., Ideal Gas Law, Linear Programming" required>
+                    </div>
+                </div>
+
+                <!-- Difficulty & Year Row -->
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="difficulty">📊 Difficulty <span class="required">*</span></label>
+                        <select id="difficulty" required>
+                            <option value="">Select Difficulty</option>
+                            <option value="easy">🟢 Easy</option>
+                            <option value="medium">🟡 Medium</option>
+                            <option value="hard">🔴 Hard</option>
+                            <option value="expert">🔮 Expert</option>
+                        </select>
+                    </div>
+                    <div class="form-group half">
+                        <label for="year">📅 Year Level <span class="required">*</span></label>
+                        <select id="year" required>
+                            <option value="">Select Year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="board">🎯 Board Exam</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- School (Optional) -->
+                <div class="form-group">
+                    <label for="school">🏫 School/University <span class="optional">(Optional)</span></label>
+                    <input type="text" id="school" placeholder="e.g., University of the Philippines">
+                </div>
+
+                <!-- Step-by-Step Solution -->
+                <div class="form-group">
+                    <label for="solution">📖 Step-by-Step Solution <span class="required">*</span></label>
+                    <textarea id="solution" rows="6" placeholder="Write the detailed solution with explanations, formulas, and steps..." required></textarea>
+                </div>
+
+                <!-- Tips & Common Mistakes -->
+                <div class="form-group">
+                    <label for="tips">💡 Tips & Common Mistakes <span class="optional">(Optional)</span></label>
+                    <textarea id="tips" rows="3" placeholder="Share shortcuts, tips, or common mistakes to avoid..."></textarea>
+                </div>
+
+                <!-- Real-World Application -->
+                <div class="form-group">
+                    <label for="realworld">🌍 Real-World Application <span class="optional">(Optional)</span></label>
+                    <textarea id="realworld" rows="2" placeholder="Where is this concept used in actual engineering?"></textarea>
+                </div>
+
+                <!-- Diagram Upload -->
+                <div class="form-group">
+                    <label for="diagram">🖼️ Upload Diagram <span class="optional">(Optional)</span></label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="diagram" accept="image/*">
+                        <label for="diagram" class="file-upload-label">📎 Choose File</label>
+                        <span class="file-name">No file chosen</span>
+                    </div>
+                    <small class="file-hint">Accepted formats: PNG, JPG, JPEG, GIF</small>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">🚀 Submit Problem</button>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MechInd Mind. By students, for students. Always free.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Log in to your MechInd Mind account</p>
+            <form id="loginForm" onsubmit="loginUser(event)">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn-primary full-width">Log In</button>
+            </form>
+            <p class="modal-footer-text">Don't have an account? <a href="#" id="switchToSignup">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSignup">&times;</span>
+            <h2>Create Your Account</h2>
+            <p class="modal-subtitle">Join the ME & IE learning community</p>
+            <form id="signupForm" onsubmit="signupUser(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Juan Dela Cruz" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create a strong password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox" required> I agree to the Terms & Conditions</label>
+                </div>
+                <button type="submit" class="btn-primary full-width">Create Account</button>
+            </form>
+            <p class="modal-footer-text">Already have an account? <a href="#" id="switchToLogin">Log In</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

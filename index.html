@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MechInd Mind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <!-- YOUR LOGO GOES HERE -->
+        <a href="index.html" class="logo-link">
+            <!-- 👇 CHANGE 'your-logo.png' TO YOUR ACTUAL FILE NAME 👇 -->
+            <img src="assets/logo.png" alt="MechMind Logo" class="nav-logo">A
+        </a>
+        
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="problems.html">Problems</a></li>
+            <li><a href="submit.html">Submit</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="btn-secondary" id="loginBtn">Log In</button>
+            <button class="btn-primary" id="signupBtn">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>MechInd Mind</h1>
+        <p class="tagline">Free. Focused. For ME & IE. By students, for students.</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Search problems by subject, topic, or keyword..." id="searchInput">
+            <button onclick="searchProblems()">🔍 Search</button>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- PROBLEM SETS SECTION (NEW)                   -->
+    <!-- ============================================ -->
+    <section class="home-problems">
+        <h2>📚 ME & IE Problem Sets</h2>
+        <p class="section-subtitle">Browse review problems from Mechanical and Industrial Engineering</p>
+
+        <div class="problem-tabs">
+            <button class="tab-btn active" onclick="filterHomeProblems('all', event)">All</button>
+            <button class="tab-btn" onclick="filterHomeProblems('me', event)">Mechanical Engineering</button>
+            <button class="tab-btn" onclick="filterHomeProblems('ie', event)">Industrial Engineering</button>
+        </div>
+
+        <div class="home-problem-grid" id="homeProblemGrid">
+
+            <!-- ME Problem 1 -->
+            <div class="home-problem-card" data-subject="me">
+                <span class="subject-tag me">ME</span>
+                <h3>Thermodynamics – Ideal Gas Law</h3>
+                <p class="problem-meta">Medium | 2nd Year | 45 solves</p>
+                <p class="problem-preview">A rigid tank contains 5 kg of an ideal gas at 300 kPa and 400 K. The gas is heated until the temperature reaches 600 K. Determine the final pressure.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(1)">📖 View Solution</button>
+                    <button onclick="saveProblem(1)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- IE Problem 1 -->
+            <div class="home-problem-card" data-subject="ie">
+                <span class="subject-tag ie">IE</span>
+                <h3>Operations Research – Linear Programming</h3>
+                <p class="problem-meta">Hard | 3rd Year | 32 solves</p>
+                <p class="problem-preview">A company produces two products. Product A requires 2 hours of labor and 1 hour of machine time. Product B requires 1 hour of labor and 3 hours of machine time. The company has 100 labor hours and 80 machine hours available daily. Profit per unit of A is $40 and B is $30. How many units of each should be produced to maximize profit?</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(2)">📖 View Solution</button>
+                    <button onclick="saveProblem(2)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- ME Problem 2 -->
+            <div class="home-problem-card" data-subject="me">
+                <span class="subject-tag me">ME</span>
+                <h3>Fluid Mechanics – Bernoulli's Equation</h3>
+                <p class="problem-meta">Easy | 1st Year | 67 solves</p>
+                <p class="problem-preview">Water flows through a pipe with a velocity of 3 m/s. The pressure at point A is 150 kPa. At point B, the pipe narrows to half the diameter. Determine the velocity and pressure at point B. Assume no losses.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(3)">📖 View Solution</button>
+                    <button onclick="saveProblem(3)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- IE Problem 2 -->
+            <div class="home-problem-card" data-subject="ie">
+                <span class="subject-tag ie">IE</span>
+                <h3>Industrial Statistics – Control Charts</h3>
+                <p class="problem-meta">Medium | 2nd Year | 28 solves</p>
+                <p class="problem-preview">A manufacturing process produces shafts with a target diameter of 50 mm. Sample data shows a mean of 50.2 mm and a standard deviation of 0.5 mm. Construct an X-bar control chart with 3-sigma limits. Determine if the process is in control.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(4)">📖 View Solution</button>
+                    <button onclick="saveProblem(4)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- ME Problem 3 -->
+            <div class="home-problem-card" data-subject="me">
+                <span class="subject-tag me">ME</span>
+                <h3>Strength of Materials – Simple Stress</h3>
+                <p class="problem-meta">Easy | 1st Year | 52 solves</p>
+                <p class="problem-preview">A steel rod with a diameter of 20 mm and a length of 2 meters is subjected to an axial tensile load of 50 kN. Determine the stress in the rod.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(5)">📖 View Solution</button>
+                    <button onclick="saveProblem(5)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- IE Problem 3 -->
+            <div class="home-problem-card" data-subject="ie">
+                <span class="subject-tag ie">IE</span>
+                <h3>Engineering Economy – Break-Even Analysis</h3>
+                <p class="problem-meta">Medium | 3rd Year | 21 solves</p>
+                <p class="problem-preview">A company is considering a new project. Fixed costs are $50,000, variable cost per unit is $10, and selling price per unit is $25. How many units must be sold to break even?</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(6)">📖 View Solution</button>
+                    <button onclick="saveProblem(6)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- ME Problem 4 (NEW) -->
+            <div class="home-problem-card" data-subject="me">
+                <span class="subject-tag me">ME</span>
+                <h3>Heat Transfer – Conduction Through a Wall</h3>
+                <p class="problem-meta">Medium | 3rd Year | 18 solves</p>
+                <p class="problem-preview">A wall with a thickness of 0.3 m has a thermal conductivity of 0.8 W/m·K. The inner surface is at 25°C and the outer surface is at 5°C. Determine the heat flux through the wall.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(7)">📖 View Solution</button>
+                    <button onclick="saveProblem(7)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- IE Problem 4 (NEW) -->
+            <div class="home-problem-card" data-subject="ie">
+                <span class="subject-tag ie">IE</span>
+                <h3>Supply Chain Management – EOQ Model</h3>
+                <p class="problem-meta">Hard | 4th Year | 15 solves</p>
+                <p class="problem-preview">A company uses 10,000 units of a component annually. The ordering cost is $50 per order, and the holding cost is $2 per unit per year. Determine the Economic Order Quantity (EOQ) and the total inventory cost.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(8)">📖 View Solution</button>
+                    <button onclick="saveProblem(8)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- ME Problem 5 (NEW) -->
+            <div class="home-problem-card" data-subject="me">
+                <span class="subject-tag me">ME</span>
+                <h3>Machine Design – Gear Ratio</h3>
+                <p class="problem-meta">Hard | 4th Year | 12 solves</p>
+                <p class="problem-preview">A gear train consists of a 20-tooth driver gear and a 60-tooth driven gear. If the driver gear rotates at 300 RPM, determine the output speed and gear ratio.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(9)">📖 View Solution</button>
+                    <button onclick="saveProblem(9)">⭐ Save</button>
+                </div>
+            </div>
+
+            <!-- IE Problem 5 (NEW) -->
+            <div class="home-problem-card" data-subject="ie">
+                <span class="subject-tag ie">IE</span>
+                <h3>Facility Layout – Distance Minimization</h3>
+                <p class="problem-meta">Hard | 4th Year | 10 solves</p>
+                <p class="problem-preview">A facility has 5 departments with the following flow matrix. Determine the optimal layout to minimize total distance traveled.</p>
+                <div class="home-problem-actions">
+                    <button onclick="viewProblem(10)">📖 View Solution</button>
+                    <button onclick="saveProblem(10)">⭐ Save</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="view-all-link">
+            <a href="problems.html" class="btn-primary">View All Problems →</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2>What We Offer</h2>
+        <div class="feature-grid">
+            <div class="feature-card"><h3>📚 Search Problems</h3><p>Find problems by subject, topic, or difficulty.</p></div>
+            <div class="feature-card"><h3>📖 Expanded Solutions</h3><p>Step-by-step with diagrams and tips.</p></div>
+            <div class="feature-card"><h3>👥 Community-Driven</h3><p>Contribute your own problems.</p></div>
+            <div class="feature-card"><h3>📊 Track Progress</h3><p>Monitor your solved problems.</p></div>
+            <div class="feature-card"><h3>🏆 Gamification</h3><p>Earn badges and points.</p></div>
+            <div class="feature-card"><h3>💬 Discussions</h3><p>Join study groups.</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MechInd Mind. By students, for students. Always free.</p>
+    </footer>
+
+    <!-- ===== LOGIN MODAL ===== -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Log in to your MechInd Mind account</p>
+            <form id="loginForm" onsubmit="loginUser(event)">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn-primary full-width">Log In</button>
+            </form>
+            <p class="modal-footer-text">Don't have an account? <a href="#" id="switchToSignup">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- ===== SIGNUP MODAL ===== -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSignup">&times;</span>
+            <h2>Create Your Account</h2>
+            <p class="modal-subtitle">Join the ME & IE learning community</p>
+            <form id="signupForm" onsubmit="signupUser(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Juan Dela Cruz" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create a strong password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox" required> I agree to the Terms & Conditions</label>
+                </div>
+                <button type="submit" class="btn-primary full-width">Create Account</button>
+            </form>
+            <p class="modal-footer-text">Already have an account? <a href="#" id="switchToLogin">Log In</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
