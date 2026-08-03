@@ -1741,3 +1741,55 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* ============================================
+   FIXES FOR SMALL PHONE SCREENS ("PUTOL" FIX)
+   ============================================ */
+
+@media (max-width: 768px) {
+    
+    /* 1. Fix the top navigation bar */
+    nav {
+        flex-wrap: wrap;       /* Allows items to stack if they run out of space */
+        padding: 0.8rem 5%;    /* Adds a bit more padding so text doesn't touch edges */
+    }
+
+    /* 2. Make the logo smaller so it doesn't eat up the whole screen */
+    .nav-logo {
+        height: 35px !important; /* Forces the logo to be small on phones */
+    }
+
+    /* 3. Hide the text links (Home, About...) and replace them with a button */
+    nav ul {
+        display: none; /* Hides the menu words on small screens */
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+        gap: 1rem;
+    }
+
+    /* 4. Add a "Hamburger" button (≡) */
+    .menu-toggle {
+        display: block !important; /* Shows the button */
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+    
+    /* 5. Make the Hero Title smaller so it fits */
+    .hero h1 {
+        font-size: 2.2rem; /* Makes the big title smaller for phones */
+    }
+
+    /* 6. Make the problem cards smaller so they don't overflow */
+    .home-problem-grid {
+        grid-template-columns: 1fr; /* Forces cards to be one single column */
+    }
+}
+
+/* 7. The CSS for the Hamburger button (keep this outside the media query) */
+.menu-toggle {
+    display: none; /* Hidden by default on computers */
+}
